@@ -2,27 +2,21 @@
 namespace App\Repositories;
 
 use App\Resources\Region;
-use GuzzleHttp\Client;
+use App\Traits\RepositoryTrait;
 
 class RegionRepository
 {
-    /** @var Client $client */
-    private $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
+    use RepositoryTrait;
 
     public function getRegionList() : array
     {
-        return json_decode($this->client->get("region")->getBody()->getContents(), true);
+        return $this->getIndex('region');
     }
 
     public function getRegion(int $id) : array
     {
         return Region::make(
-            json_decode($this->client->get("region/$id")->getBody()->getContents(), true)
+            $this->getSpecific('region', $id)
         )->resolve();
     }
 }

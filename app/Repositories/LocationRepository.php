@@ -2,28 +2,21 @@
 namespace App\Repositories;
 
 use App\Resources\Location;
-use GuzzleHttp\Client;
+use App\Traits\RepositoryTrait;
 
 class LocationRepository
 {
-    /** @var Client $client */
-    private $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
+    use RepositoryTrait;
 
     public function getLocationList($page = 0, $limit = 100) : array
     {
-        $offset = $page * $limit;
-        return json_decode($this->client->get("location?limit=$limit&offset=$offset")->getBody()->getContents(), true);
+        return $this->getIndex('location', $page,$limit);
     }
 
     public function getLocation(int $id) : array
     {
         return Location::make(
-            json_decode($this->client->get("location/$id")->getBody()->getContents(), true)
+            $this->getSpecific('location', $id)
         )->resolve();
     }
 }

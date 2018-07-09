@@ -1,29 +1,22 @@
 <?php
 namespace App\Repositories;
 
-use App\Resources\Location;
-use GuzzleHttp\Client;
+use App\Resources\ItemAttribute;
+use App\Traits\RepositoryTrait;
 
 class ItemAttributeRepository
 {
-    /** @var Client $client */
-    private $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
+    use RepositoryTrait;
 
     public function getItemAttributeList($page = 0, $limit = 100) : array
     {
-        $offset = $page * $limit;
-        return json_decode($this->client->get("item-attribute?limit=$limit&offset=$offset")->getBody()->getContents(), true);
+        return $this->getIndex('item-attribute', $page, $limit);
     }
 
     public function getItemAttribute(int $id) : array
     {
-        return Location::make(
-            json_decode($this->client->get("item-attribute/$id")->getBody()->getContents(), true)
+        return ItemAttribute::make(
+            $this->getSpecific('item-attribute', $id)
         )->resolve();
     }
 }
