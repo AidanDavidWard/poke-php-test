@@ -1,35 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Repositories\AbilitiesRepository;
-use App\Repositories\PokemonRepository;
-use GuzzleHttp\Client;
-use Illuminate\Http\Request;
+use App\Traits\ControllerTrait;
 use Illuminate\Routing\Controller as BaseController;
-use Illuminate\Foundation\Application as Application;
 
 class PokemonController extends BaseController
 {
-    /** @var Client  $client */
-    private $client;
-    /** @var PokemonRepository $pokemonRepository */
-    private $pokemonRepository;
-    /** @var AbilitiesRepository $abilitiesRepository */
-    private $abilitiesRepository;
-    /** @var Request $request */
-    private $request;
-    /** @var int $page The page number for pagination */
-    private $page;
-    /** @var int $limit The number of results to display on page */
-    private $limit;
-
-    public function __construct(Application $app, Request $request)
-    {
-        $this->client = $app->make('PokeAPI\Client');
-        $this->pokemonRepository = new PokemonRepository($this->client);
-        $this->abilitiesRepository = new AbilitiesRepository($this->client);
-        $this->request = $request;
-    }
+    use ControllerTrait;
 
     public function index() {
         $this->processPageAndLimitParams();

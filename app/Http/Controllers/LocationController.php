@@ -1,35 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Repositories\LocationRepository;
-use App\Repositories\RegionRepository;
+use App\Traits\ControllerTrait;
 use Illuminate\Routing\Controller as BaseController;
-use GuzzleHttp\Client;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Application as Application;
 
 class LocationController extends BaseController
 {
-    /** @var Client  $client */
-    private $client;
-    /** @var LocationRepository $locationRespository */
-    private $locationRespository;
-    /** @var RegionRepository $regionRepository */
-    private $regionRepository;
-    /** @var Request $request */
-    private $request;
-    /** @var int $page The page number for pagination */
-    private $page;
-    /** @var int $limit The number of results to display on page */
-    private $limit;
-
-    public function __construct(Application $app, Request $request)
-    {
-        $this->client = $app->make('PokeAPI\Client');
-        $this->locationRespository = new LocationRepository($this->client);
-        $this->regionRepository = new RegionRepository($this->client);
-        $this->request = $request;
-    }
+    use ControllerTrait;
 
     public function index() {
         $this->processPageAndLimitParams();

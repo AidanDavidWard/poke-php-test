@@ -22,7 +22,7 @@ Route::get('categories', 'MoveController@categoriesIndex');
 Route::get('categories/{id}', 'MoveController@categories');
 
 // Item routes
-Route::get('items', 'ItemController@index');
-Route::get('items/{id}', 'ItemController@items');
-Route::get('attributes', 'ItemController@attributesIndex');
-Route::get('attributes/{id}', 'ItemController@attributes');
+Route::get('item', 'ItemController@index');
+Route::get('item/{id}', 'ItemController@items');
+Route::get('item-attribute', 'ItemController@attributesIndex');
+Route::get('item-attribute/{id}', 'ItemController@attributes');
