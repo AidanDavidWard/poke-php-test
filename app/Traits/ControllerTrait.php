@@ -58,4 +58,8 @@ trait ControllerTrait
         $this->request = $request;
     }
 
+    private function processPageAndLimitParams() {
+        $this->limit = (int) $this->request->input('limit',100);
+        $this->page = (int) $this->request->input('page', 1); //for display purposes. Wouldn't want them seeing page 2 as page 1
+    }
 }
