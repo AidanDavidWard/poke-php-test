@@ -25,8 +25,8 @@ trait ControllerTrait
     /** @var RegionRepository $regionRepository */
     private $regionRepository;
 
-    /** @var ItemRepository $itemRespository */
-    private $itemRespository;
+    /** @var ItemRepository $itemRepository */
+    private $itemRepository;
     /** @var ItemAttributeRepository $itemAttributeRepository */
     private $itemAttributeRepository;
 
@@ -49,7 +49,7 @@ trait ControllerTrait
         $this->locationRespository = new LocationRepository($this->client);
         $this->regionRepository = new RegionRepository($this->client);
 
-        $this->itemRespository = new ItemRepository($this->client);
+        $this->itemRepository = new ItemRepository($this->client);
         $this->itemAttributeRepository = new ItemAttributeRepository($this->client);
 
         $this->pokemonRepository = new PokemonRepository($this->client);

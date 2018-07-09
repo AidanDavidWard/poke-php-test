@@ -18,8 +18,8 @@
             <div class="links right m-t-la m-r-md">
                 <a href="{{ url('pokemon') }}">Pokémon</a>
                 <a href="{{ url('location') }}">Locations</a>
-                <a href="{{ url('moves') }}">Moves</a>
-                <a href="{{ url('items') }}">Items</a>
+                <a href="{{ url('move') }}">Moves</a>
+                <a href="{{ url('item') }}">Items</a>
             </div>
             <div class="clear"></div>
         </div>

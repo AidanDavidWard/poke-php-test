@@ -26,7 +26,7 @@ class PokemonController extends BaseController
         return view('pokemon.pokemon')
             ->with(
                 'pokemon',
-                $this->pokemonRepository->getPokemon( $id)
+                $this->pokemonRepository->getPokemon($id)
             );
     }
 
