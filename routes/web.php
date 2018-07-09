@@ -12,8 +12,8 @@ Route::get('abilities/{id}', 'PokemonController@abilities');
 // Location routes
 Route::get('location', 'LocationController@index');
 Route::get('location/{id}', 'LocationController@location');
-Route::get('regions', 'LocationController@regionsIndex');
-Route::get('regions/{id}', 'LocationController@regions');
+Route::get('region', 'LocationController@regionIndex');
+Route::get('region/{id}', 'LocationController@region');
 
 // Move routes
 Route::get('moves', 'MoveController@index');

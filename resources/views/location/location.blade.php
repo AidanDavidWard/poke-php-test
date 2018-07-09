@@ -9,20 +9,12 @@
                     @if($key == "Region")
                         <a class="tag base" href="{{ url("regions/" . explode("/", $item['url'])[6]) }}">{{ ucfirst($item['name']) }}</a>
                     @elseif($key == "Areas")
-                        @foreach($item as $index => $type)
-                            <span class="tag {{ $type['type']['name'] }}">{{ $type['type']['name'] }}</span>
+                        @foreach($item as $index => $area)
+                            <span class="tag base-non-link">{{ $area['name'] }}</span>
                         @endforeach
-                    @elseif($key == "Stats")
-                        @foreach($item as $index => $stat)
-                            <span class="tag base-non-link">{{ $stat['stat']['name'] }}: {{ $stat['base_stat'] }}</span>
-                        @endforeach
-                    @elseif($key == "Moves")
-                        @foreach($item as $index => $move)
-                            <a class="tag base" href="{{ url("moves/" . explode("/", $move['move']['url'])[6]) }}">{{ $move['move']['name'] }}</a>
-                        @endforeach
-                    @elseif($key == "Abilities")
-                        @foreach($item as $index => $ability)
-                            <a class="tag base" href="{{ url("pokemon/abilities/" . explode("/", $ability['ability']['url'])[6]) }}">{{ $ability['ability']['name'] }}</a>
+                    @elseif($key == "Generation")
+                        @foreach($item as $index => $generation)
+                            <span class="tag base-non-link">{{ $generation['generation']['name'] }}</span>
                         @endforeach
                     @else
                         {{ $item }}

@@ -7,7 +7,6 @@ class Location extends Resource
 {
     public function toArray($request) : array
     {
-        dd($this->resource);
         return [
             "ID" => $this->resource['id'],
             "Name" => ucfirst($this->resource['name']),

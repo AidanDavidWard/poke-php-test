@@ -51,7 +51,7 @@ class LocationController extends BaseController
                 $this->locationRespository->getLocation( $id)
             );
     }
-    public function regionsIndex() {
+    public function regionIndex() {
         $regionListResults = $this->regionRepository->getRegionList();
         $viewParams = [
             'regionList' => $regionListResults['results'],
