@@ -31,7 +31,23 @@ class ItemController extends BaseController
     }
 
     public function itemAttributeIndex() {
+        $this->processPageAndLimitParams();
+        $itemAttributeListResults = $this->itemAttributeRepository->getItemAttributeList($this->page - 1, $this->limit);
+        $viewParams = [
+            'itemAttributeList' => $itemAttributeListResults['results'],
+            'totalNumber' => $itemAttributeListResults['count'],
+            'page' => $this->page,
+            'limit' => $this->limit
+        ];
+
+        return view('item.itemAttributeIndex')
+            ->with($viewParams);
     }
-    public function itemAttribute() {
+    public function itemAttribute(int $id) {
+        return view('item.itemAttribute')
+            ->with(
+                'itemAttribute',
+                $this->itemAttributeRepository->getItemAttribute($id)
+            );
     }
 }
