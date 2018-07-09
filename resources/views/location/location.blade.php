@@ -7,7 +7,7 @@
                 <th>{{ $key }}</th>
                 <td>
                     @if($key == "Region")
-                        <a class="tag base" href="{{ url("regions/" . explode("/", $item['url'])[6]) }}">{{ ucfirst($item['name']) }}</a>
+                        <a class="tag base" href="{{ url("region/" . explode("/", $item['url'])[6]) }}">{{ ucfirst($item['name']) }}</a>
                     @elseif($key == "Areas")
                         @foreach($item as $index => $area)
                             <span class="tag base-non-link">{{ $area['name'] }}</span>
