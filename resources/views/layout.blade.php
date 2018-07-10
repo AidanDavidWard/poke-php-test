@@ -15,11 +15,15 @@
             <div class="title m-l-md left">
                 ADW Pokédex
             </div>
-            <div class="links right m-t-la m-r-md">
+            <div class="links right m-t-la m-r-md m-b-md">
                 <a href="{{ url('pokemon') }}">Pokémon</a>
+                <a href="{{ url('abilities') }}">Abilities</a>
                 <a href="{{ url('location') }}">Locations</a>
+                <a href="{{ url('region') }}">Regions</a>
                 <a href="{{ url('move') }}">Moves</a>
+                <a href="{{ url('move-category') }}">Move Categories</a>
                 <a href="{{ url('item') }}">Items</a>
+                <a href="{{ url('item-attribute') }}">Item Attributes</a>
             </div>
             <div class="clear"></div>
         </div>

@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <h2>Pokemon List</h2>
-    <form action="{{ url("pokemon?page=$page") }}">
+    <h2>Move List</h2>
+    <form action="{{ url("move?page=$page") }}">
         <label for="limit-select">Limit:</label>
         <select name="limit" id="limit-select">
             @foreach(['100','250','500','750','1000'] as $limitValue)
@@ -12,7 +12,7 @@
         <input type="submit" value="Go">
     </form>
     @for ($i = $limit; $i <= $totalNumber; $i += $limit)
-        <a href="{{ url("pokemon?limit=$limit&page=" . ($i / $limit)) }}">{{ $i / $limit }}</a>
+        <a href="{{ url("move?limit=$limit&page=" . ($i / $limit)) }}">{{ $i / $limit }}</a>
     @endfor
     <table class="center">
         <thead>
@@ -21,11 +21,11 @@
             <th>View more</th>
         </thead>
         <tbody>
-            @foreach($pokemonList as $pokemon)
+            @foreach($moveList as $item)
                 <tr>
-                    <td>{{ explode("/", $pokemon['url'])[6] }}</td>
-                    <td>{{ ucfirst($pokemon['name']) }}</td>
-                    <td><a href="{{ url("pokemon/" . explode("/", $pokemon['url'])[6]) }}">Click</a></td>
+                    <td>{{ explode("/", $item['url'])[6] }}</td>
+                    <td>{{ ucfirst($item['name']) }}</td>
+                    <td><a href="{{ url("move/" . explode("/", $item['url'])[6]) }}">Click</a></td>
                 </tr>
             @endforeach
         </tbody>

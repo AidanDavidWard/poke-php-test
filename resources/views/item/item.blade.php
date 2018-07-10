@@ -2,26 +2,26 @@
 
 @section('content')
     <table>
-        @foreach($item as $key => $item)
+        @foreach($item as $key => $dataPoint)
             <tr>
                 <th>{{ $key }}</th>
                 <td>
                     @if($key == 'Sprites')
-                            @foreach($item as $name => $url)
+                            @foreach($dataPoint as $name => $url)
                                 @if($url !== null)
                                     <img src="{{ $url }}" alt="{{ $name }}">
                                 @endif
                             @endforeach
                     @elseif($key == 'Effects')
-                        @foreach($item as $index => $data)
+                        @foreach($dataPoint as $index => $data)
                             <span class="tag base-non-link">{{ $data['short_effect'] }}</span>
                         @endforeach
                     @elseif($key == 'Attributes')
-                        @foreach($item as $index => $attribute)
+                        @foreach($dataPoint as $index => $attribute)
                             <a class="tag base" href="{{ url("item-attribute/" . explode("/", $attribute['url'])[6]) }}">{{ $attribute['name'] }}</a>
                         @endforeach
                     @else
-                        {{ $item }}
+                        {{ $dataPoint }}
                     @endif
                 </td>
             </tr>

@@ -15,6 +15,9 @@ use App\Repositories\ItemAttributeRepository;
 use App\Repositories\AbilitiesRepository;
 use App\Repositories\PokemonRepository;
 
+use App\Repositories\MoveCategoryRepository;
+use App\Repositories\MoveRepository;
+
 trait ControllerTrait
 {
     /** @var Client  $client */
@@ -35,6 +38,11 @@ trait ControllerTrait
     /** @var AbilitiesRepository $abilitiesRepository */
     private $abilitiesRepository;
 
+    /** @var MoveRepository $moveRepository */
+    private $moveRepository;
+    /** @var MoveCategoryRepository $moveCategoryRepository */
+    private $moveCategoryRepository;
+
     /** @var Request $request */
     private $request;
     /** @var int $page The page number for pagination */
@@ -54,6 +62,9 @@ trait ControllerTrait
 
         $this->pokemonRepository = new PokemonRepository($this->client);
         $this->abilitiesRepository = new AbilitiesRepository($this->client);
+
+        $this->moveRepository = new MoveRepository($this->client);
+        $this->moveCategoryRepository = new MoveCategoryRepository($this->client);
 
         $this->request = $request;
     }

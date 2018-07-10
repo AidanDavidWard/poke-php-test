@@ -16,10 +16,10 @@ Route::get('region', 'LocationController@regionIndex');
 Route::get('region/{id}', 'LocationController@region');
 
 // Move routes
-Route::get('moves', 'MoveController@index');
-Route::get('moves/{id}', 'MoveController@moves');
-Route::get('categories', 'MoveController@categoriesIndex');
-Route::get('categories/{id}', 'MoveController@categories');
+Route::get('move', 'MoveController@index');
+Route::get('move/{id}', 'MoveController@move');
+Route::get('move-category', 'MoveController@categoryIndex');
+Route::get('move-category/{id}', 'MoveController@category');
 
 // Item routes
 Route::get('item', 'ItemController@index');
