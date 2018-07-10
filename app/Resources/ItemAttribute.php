@@ -8,11 +8,10 @@ class ItemAttribute extends Resource
     public function toArray($request) : array
     {
         return [
-            "ID" => $this->resource['id'],
-            "Name" => ucfirst($this->resource['name']),
-            "Region" => $this->resource['region'],
-            "Areas" => $this->resource['areas'],
-            "Generation" => $this->resource['game_indices'],
+            'ID' => $this->resource['id'],
+            'Name' => ucfirst($this->resource['name']),
+            'Descriptions' => $this->resource['descriptions'],
+            'Items' => $this->resource['items'],
         ];
     }
 

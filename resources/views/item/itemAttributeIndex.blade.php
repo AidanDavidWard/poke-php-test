@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <h2>Abilities List</h2>
+    <h2>Item Attribute List</h2>
     <table class="center">
         <thead>
         <th>ID</th>

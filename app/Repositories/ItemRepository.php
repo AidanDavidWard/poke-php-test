@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories;
 
-use App\Resources\Location;
+use App\Resources\Item;
 use App\Traits\RepositoryTrait;
 
 class ItemRepository

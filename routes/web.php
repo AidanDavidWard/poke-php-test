@@ -23,6 +23,6 @@ Route::get('categories/{id}', 'MoveController@categories');
 
 // Item routes
 Route::get('item', 'ItemController@index');
-Route::get('item/{id}', 'ItemController@items');
+Route::get('item/{id}', 'ItemController@item');
 Route::get('item-attribute', 'ItemController@itemAttributeIndex');
 Route::get('item-attribute/{id}', 'ItemController@itemAttribute');

@@ -22,11 +22,11 @@
                         @endforeach
                     @elseif($key == "Moves")
                         @foreach($item as $index => $move)
-                            <a class="tag base" href="{{ url("moves/" . explode("/", $move['move']['url'])[6]) }}">{{ $move['move']['name'] }}</a>
+                            <a class="tag base" href="{{ url("move/" . explode("/", $move['move']['url'])[6]) }}">{{ $move['move']['name'] }}</a>
                         @endforeach
                     @elseif($key == "Abilities")
                         @foreach($item as $index => $ability)
-                            <a class="tag base" href="{{ url("pokemon/abilities/" . explode("/", $ability['ability']['url'])[6]) }}">{{ $ability['ability']['name'] }}</a>
+                            <a class="tag base" href="{{ url("abilities/" . explode("/", $ability['ability']['url'])[6]) }}">{{ $ability['ability']['name'] }}</a>
                         @endforeach
                     @else
                         {{ $item }}
